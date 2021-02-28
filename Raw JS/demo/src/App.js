@@ -1,9 +1,9 @@
-const Car = (props) => {
+const Car = ({name, prodYear, price}) => {
     return React.createElement("div", {},
     [
-        React.createElement("h2", {}, props.name),
-        React.createElement("h2", {}, props.prodYear),
-        React.createElement("h2", {}, props.price),
+        React.createElement("h2", {}, name),
+        React.createElement("h2", {}, prodYear),
+        React.createElement("h2", {}, price),
     ]
     )
 }
