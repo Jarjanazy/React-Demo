@@ -1,9 +1,9 @@
-const Car = () => {
+const Car = (props) => {
     return React.createElement("div", {},
     [
-        React.createElement("h2", {}, "Ford"),
-        React.createElement("h2", {}, "Hunda"),
-        React.createElement("h2", {}, "Tata"),
+        React.createElement("h2", {}, props.name),
+        React.createElement("h2", {}, props.prodYear),
+        React.createElement("h2", {}, props.price),
     ]
     )
 }
@@ -15,7 +15,18 @@ const App = () => {
     return React.createElement(
         "div", // what kind of tag you want
         {}, // componenet attributes, id, name for example
-        Car()
+        [
+        Car({
+            name : "Jeep",
+            prodYear : "2020",
+            price : "10k"
+        }),
+        Car({
+            name : "Ford",
+            prodYear : "2018",
+            price : "8k"
+        })
+    ]
     )
 }
 
