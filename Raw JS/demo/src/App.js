@@ -1,3 +1,9 @@
+import React from 'react';
+import {render} from 'react-dom';
+// those imports work because we isntalled react and react-dom using the command
+// npm i react react-dom
+// we don't need to load them online anymore
+
 const Car = ({ name, prodYear, price }) => {
   return React.createElement("div", {}, [
     React.createElement("h2", {}, name),
@@ -27,4 +33,4 @@ const App = () => {
 };
 
 // render this React component to this div
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+render(React.createElement(App), document.getElementById("root"));
