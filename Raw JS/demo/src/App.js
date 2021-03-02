@@ -4,13 +4,7 @@ import {render} from 'react-dom';
 // npm i react react-dom
 // we don't need to load them online anymore
 
-const Car = ({ name, prodYear, price }) => {
-  return React.createElement("div", {}, [
-    React.createElement("h2", {}, name),
-    React.createElement("h2", {}, prodYear),
-    React.createElement("h2", {}, price),
-  ]);
-};
+import Car from './Car';
 
 // create a component called App
 const App = () => {
