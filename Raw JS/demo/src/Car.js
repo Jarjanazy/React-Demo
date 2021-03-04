@@ -1,14 +1,7 @@
 import React from 'react';
 
 export default function Car ({ name, prodYear, price }) {
-  //return React.createElement("div", {}, [
-  //  React.createElement("h2", {}, name),
-  //  React.createElement("h2", {}, prodYear),
-  //  React.createElement("h2", {}, price),
-  //]);
-
-  // this code translates to the one on top
-  // this is far more readable that's why we use it
+  // we must return a single enclosing tag, with everything else inside it 
   return (
     <div> 
       <h2>{name}</h2>
@@ -16,6 +9,4 @@ export default function Car ({ name, prodYear, price }) {
       <h2>{price}</h2>
     </div>
   )
-
-
 };
