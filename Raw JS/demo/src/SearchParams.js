@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
+import useDropdown from './useDropdown'
 
 const APIMock = ['Dog', 'Cat', 'Bird']
 
 const searchParams = () => {
     const [location, setLocation] = useState('Seattle, WA'); // set default as Seattle, WA
-    const [animal, setAnimal] = useState('dog');
+    const [animal, AnimalDrodown] = useDropdown('Animal', APIMock[0], APIMock);
 
     return (
         // when we try to edit the input field we notice that it doesn't change
@@ -18,15 +19,7 @@ const searchParams = () => {
                     <input id="location" value={location} placeholder="Location" onChange={(e) => setLocation(e.target.value)}/>
                     <button> Submit</button>
                 </label>
-                <label htmlFor='animal'>
-                    Animal
-                    <select id="animal" 
-                    value={animal} 
-                    onChange={e => setAnimal(e.target.value)}
-                    onBlur={e => setAnimal(e.target.value)}>
-                        {APIMock.map(animal => <option value={animal}>{animal}</option>)}
-                    </select>
-                </label>
+                <AnimalDrodown />
 
             </form>
         </div>
