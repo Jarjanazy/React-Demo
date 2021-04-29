@@ -4,10 +4,10 @@ const Movie = ({attr}) => {
     return (
         <div className="card">
             <h2> {attr.name} </h2>
-            <h2> {attr.minuteLength} </h2>
-            <h2> {attr.budgetInMillion} </h2>
-            <h2> {attr.revenueInMillion} </h2>
-            <h2> {attr.awardCount} </h2>
+            <h2> {attr.runtimeInMinutes} </h2>
+            <h2> {attr.budgetInMillions} </h2>
+            <h2> {attr.boxOfficeRevenueInMillions} </h2>
+            <h2> {attr.academyAwardNominations} </h2>
         </div>
     );
 }
