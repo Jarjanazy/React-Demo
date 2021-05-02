@@ -1,6 +1,6 @@
 import './App.css';
 
-import MovieList from  './domain/MovieList'
+import MovieList from  './domain/MovieTable'
 
 
 function App() {
