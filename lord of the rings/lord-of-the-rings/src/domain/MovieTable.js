@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import MovieRow from './MovieTableRow'
 
+const rowIsShown = (budget) => {
+    return budget > 200
+}
 
 const MovieTable = () => {
     const [movies, setMovies] = useState([]);
@@ -29,7 +32,7 @@ const MovieTable = () => {
             </tr>
             </thead>
             <tbody>
-                {movies.map(m => <MovieRow attr={m}/>)}
+                {movies.map(m => rowIsShown(m.budgetInMillions) && <MovieRow attr={m}/>)}
             </tbody>
         </table>
 
