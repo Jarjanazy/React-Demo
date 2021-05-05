@@ -10,13 +10,7 @@ const objectIsEmpty = (obj) => {
 
 const setApiResponseToMovie = (response, setMovie) => {
   console.log(response);
-
-  if (response.Response === "False"){
-    setMovie({"Title" : "No Such Movie"});
-  }
-  else{
     setMovie(response);
-  }
 }
 
 function App() {
