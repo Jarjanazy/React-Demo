@@ -1,17 +1,28 @@
 import './App.css';
-import {useEffect} from 'react';
+import {useState} from 'react';
+
+
+import SearchBar from './application/SearchBar';
 
 function App() {
+  const [keyword, setKeyword] = useState("");
 
-  useEffect(() => {
-    fetch('http://www.omdbapi.com/?apikey=4926c71a&i=tt3896198', {})
+ const callAPI = () => {
+    const url = `http://www.omdbapi.com/?apikey=4926c71a&t=${keyword}`;
+    fetch(url, {})
         .then(res => res.json())
         .then((data) => {console.log(data)})
         .catch(console.log)
-  });
+  };
+
   return (
-    <h2> HELLO </h2>
+    <div>
+      <button type="submit" onClick={callAPI}>Search</button>
+      <SearchBar keyword={keyword} setKeyword={setKeyword}/>
+    </div>
   );
+
+
 }
 
 export default App;
