@@ -3,12 +3,14 @@ const Movie = ({attr}) =>{
         return <h2> No Such Movie</h2>
     }
     else return (
-        <div>
-            <h2>Title : {attr.Title}</h2>
-            <h2>Year of Release : {attr.Year}</h2>
-            <h2>Actors : {attr.Actors}</h2>
-            <h2>Genre : {attr.Genre}</h2>
-            <img src={attr.Poster}/>
+        <div className="container">
+            <div className="row">
+                <h2 className="col-md-12">Title : {attr.Title}</h2>
+                <h2 className="col-md-12">Year : {attr.Year}</h2>
+                <h2 className="col-md-12">Actors : {attr.Actors}</h2>
+                <h2 className="col-md-12">Genre : {attr.Genre}</h2>
+                <img className="col-md-12" src={attr.Poster}/>
+            </div>
         </div>
     );
 };

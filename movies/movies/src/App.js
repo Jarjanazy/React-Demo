@@ -26,9 +26,8 @@ function App() {
   };
 
   return (
-    <div>
-      <button type="submit" onClick={callAPI}>Search</button>
-      <SearchBar keyword={keyword} setKeyword={setKeyword}/>
+    <div className="container" style={{background:"skyblue"}}>
+      <SearchBar keyword={keyword} setKeyword={setKeyword} callAPI={callAPI}/>
       {!objectIsEmpty(movie) && <Movie attr={movie}/>}
     </div>
   );
