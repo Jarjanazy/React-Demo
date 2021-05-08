@@ -1,8 +1,8 @@
 import './App.css';
 import {useState} from 'react';
-
 import SearchBar from './application/SearchBar';
 import Movie from './domain/Movie';
+import {Heading, VStack } from '@chakra-ui/react'
 
 const objectIsEmpty = (obj) => {
   return obj && Object.keys(obj).length === 0 && obj.constructor === Object;
@@ -26,10 +26,11 @@ function App() {
   };
 
   return (
-    <div className="container" style={{background:"skyblue"}}>
+    <VStack>
+      <Heading >Welcome To The Movie Finder</Heading >
       <SearchBar keyword={keyword} setKeyword={setKeyword} callAPI={callAPI}/>
       {!objectIsEmpty(movie) && <Movie attr={movie}/>}
-    </div>
+    </VStack>
   );
 
 
