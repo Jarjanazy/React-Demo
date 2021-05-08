@@ -8,7 +8,7 @@ const setApiResponseToMovie = (response, setMovie) => {
 const callAPI = (keyword, setMovie) => {
   if (keyword === "") return;
 
-   const url = `http://www.omdbapi.com/?apikey=4926c71a&t=${keyword}`;
+   const url = `https://www.omdbapi.com/?apikey=4926c71a&t=${keyword}`;
    fetch(url, {})
        .then(res => res.json())
        .then((data) => {setApiResponseToMovie(data, setMovie)})
