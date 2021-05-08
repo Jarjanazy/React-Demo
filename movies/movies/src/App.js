@@ -2,7 +2,8 @@ import './App.css';
 import {useState} from 'react';
 import SearchBar from './application/SearchBar';
 import Movie from './domain/Movie';
-import {Heading, VStack } from '@chakra-ui/react'
+import {Heading, VStack, IconButton} from '@chakra-ui/react'
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const objectIsEmpty = (obj) => {
   return obj && Object.keys(obj).length === 0 && obj.constructor === Object;
@@ -26,10 +27,20 @@ function App() {
   };
 
   return (
-    <VStack>
-      <Heading >Welcome To The Movie Finder</Heading >
+    <VStack p={4} spacing={4}>
+      <IconButton 
+        icon={<FaSun/>} 
+        isRound={true} 
+        size="lg" 
+        alignSelf="flex-end"
+      />
+
+      <Heading size="2xl" >Welcome To The Movie Finder</Heading >
+
       <SearchBar keyword={keyword} setKeyword={setKeyword} callAPI={callAPI}/>
+
       {!objectIsEmpty(movie) && <Movie attr={movie}/>}
+      
     </VStack>
   );
 

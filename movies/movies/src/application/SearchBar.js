@@ -1,9 +1,12 @@
+import {HStack, Button, Input} from '@chakra-ui/react'
+
+
 const SearchBar = ({keyword, setKeyword, callAPI}) => {
     return (
-        <div className="text-center">
-            <button type="submit" onClick={callAPI}>Search</button>
-            <input placeholder="Search a movie" value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
-        </div>
+        <HStack>
+            <Button type="submit" onClick={callAPI}>Search</Button>
+            <Input placeholder="Search a movie" value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
+        </HStack>
         );
 }
 
