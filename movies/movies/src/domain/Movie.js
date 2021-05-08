@@ -1,13 +1,16 @@
-import {VStack, Text } from '@chakra-ui/react'
+import {VStack, Text, Image, HStack, StackDivider} from '@chakra-ui/react'
 
 const Movie = ({attr}) =>{
     if (attr.Response === "False"){
         return <h2> No Such Movie</h2>
     }
     else return (
-        <VStack>
+        <VStack divider={<StackDivider/>} borderColor="green.100">
             
-            <Text fontSize="4xl">Title : {attr.Title}</Text >
+            <HStack> 
+                <Text fontSize="4xl">Title </Text> 
+                <Text fontSize="4xl">: {attr.Title}</Text>
+            </HStack>
             
             <Text fontSize="4xl">Year : {attr.Year}</Text>
             
@@ -15,7 +18,7 @@ const Movie = ({attr}) =>{
             
             <Text fontSize="4xl">Genre : {attr.Genre}</Text>
             
-            <img src={attr.Poster}/>
+            <Image  src={attr.Poster}/>
         </VStack>
 
     );
