@@ -1,4 +1,4 @@
-import {VStack, Text, Image, HStack, StackDivider, Spacer} from '@chakra-ui/react'
+import {VStack, Text, Image, HStack, StackDivider} from '@chakra-ui/react'
 
 const Movie = ({attr}) =>{
     if (attr.Response === "False"){
