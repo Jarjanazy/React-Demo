@@ -10,7 +10,6 @@ const objectIsEmpty = (obj) => {
 }
 
 function App() {
-  const [keyword, setKeyword] = useState("", []);
   const [movie, setMovie] = useState({});
 
   return (
@@ -19,7 +18,7 @@ function App() {
 
       <Heading size="2xl" >Welcome To The Movie Finder</Heading >
 
-      <SearchBar keyword={keyword} setKeyword={setKeyword} setMovie={setMovie}/>
+      <SearchBar setMovie={setMovie}/>
 
       {!objectIsEmpty(movie) && <Movie attr={movie}/>}
       

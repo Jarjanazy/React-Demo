@@ -1,4 +1,5 @@
 import {HStack, Button, Input} from '@chakra-ui/react'
+import {useRef} from 'react';
 
 
 const setApiResponseToMovie = (response, setMovie) => {
@@ -15,11 +16,15 @@ const callAPI = (keyword, setMovie) => {
        .catch(console.log)
  };
 
-const SearchBar = ({keyword, setKeyword, setMovie}) => {
+
+
+const SearchBar = ({setMovie}) => {
+    const keywordRef = useRef(null);
+    
     return (
         <HStack>
-            <Button type="submit" onClick={() => callAPI(keyword, setMovie)}>Search</Button>
-            <Input placeholder="Search a movie" value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
+            <Button type="submit" onClick={() => callAPI(keywordRef.current.value, setMovie)}>Search</Button>
+            <Input placeholder="Search a movie" ref={keywordRef}/>
         </HStack>
         );
 }
