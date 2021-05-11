@@ -3,6 +3,7 @@ import {useRef} from 'react';
 
 
 const setApiResponseToMovie = (response, setMovie) => {
+    console.log(response);
     setMovie(response);
 }
 
