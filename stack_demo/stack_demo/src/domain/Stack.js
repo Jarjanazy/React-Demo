@@ -1,13 +1,10 @@
 import {VStack} from '@chakra-ui/react';
 import {LinkIcon} from '@chakra-ui/icons';
 
-const Stack = () => {
-
+const Stack = ({state}) => {
     return (
     <VStack>
-        <LinkIcon>HEY 1</LinkIcon>
-        <LinkIcon>HEY 2</LinkIcon>
-        <LinkIcon>HEY 3</LinkIcon>
+        {Array(state.blockCount).fill(1).map(i => <LinkIcon>HEY 1</LinkIcon>)}
     </VStack>
     );
 }
