@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react';
+import {useState, useReducer} from 'react';
 import SearchBar from './application/SearchBar';
 import Movie from './domain/Movie';
 import {Heading, VStack} from '@chakra-ui/react'
@@ -9,8 +9,21 @@ const objectIsEmpty = (obj) => {
   return obj && Object.keys(obj).length === 0 && obj.constructor === Object;
 }
 
+
+
+const reduce = (currentState, action) => {
+  switch(action.type){
+    case "search_movie":
+      return {movie : action.movie};
+    
+    default:
+      throw new Error();
+  }
+}
+
+
 function App() {
-  const [movie, setMovie] = useState({});
+  const [state, dispatch] = useReducer(reduce, {})
 
   return (
     <VStack p={4} spacing={4}>
@@ -18,9 +31,9 @@ function App() {
 
       <Heading size="2xl" >Welcome To The Movie Finder</Heading >
 
-      <SearchBar setMovie={setMovie}/>
+      <SearchBar dispatch={dispatch}/>
 
-      {!objectIsEmpty(movie) && <Movie attr={movie}/>}
+      {!objectIsEmpty(state) && <Movie movie={state.movie}/>}
       
     </VStack>
   );
