@@ -1,24 +1,13 @@
 import './App.css';
-import {useState, useReducer} from 'react';
+import {useReducer} from 'react';
 import SearchBar from './application/SearchBar';
 import Movie from './domain/Movie';
+import reduce from './domain/Reducer'
 import {Heading, VStack} from '@chakra-ui/react'
 import ModeToggleButton from './application/ModeToggleButton'
 
 const objectIsEmpty = (obj) => {
   return obj && Object.keys(obj).length === 0 && obj.constructor === Object;
-}
-
-
-
-const reduce = (currentState, action) => {
-  switch(action.type){
-    case "search_movie":
-      return {movie : action.movie};
-    
-    default:
-      throw new Error();
-  }
 }
 
 

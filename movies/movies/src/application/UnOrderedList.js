@@ -1,8 +1,6 @@
 import {UnorderedList, ListItem, Text, VStack} from '@chakra-ui/react'
 
 const UnOrderedListFromString = ({title, listAsString}) => {
-    
-
     return (
         <VStack>
             <Text fontSize="3xl"> {title} </Text>
