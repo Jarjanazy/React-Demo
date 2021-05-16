@@ -1,8 +1,8 @@
 const reduce = (currentState, action) => {
     switch(action.type){
-      case "search_movie":
-        return {movie : action.movie};
-      
+      case "show_searched_movies":
+        return {movies : action.movies};
+
       default:
         throw new Error();
     }

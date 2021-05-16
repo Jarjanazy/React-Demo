@@ -1,7 +1,7 @@
 import './App.css';
 import {useReducer} from 'react';
 import SearchBar from './application/SearchBar';
-import Movie from './domain/Movie';
+import MovieList from './domain/MovieList';
 import reduce from './domain/Reducer'
 import {Heading, VStack} from '@chakra-ui/react'
 import ModeToggleButton from './application/ModeToggleButton'
@@ -22,7 +22,7 @@ function App() {
 
       <SearchBar dispatch={dispatch}/>
 
-      {!objectIsEmpty(state) && <Movie movie={state.movie}/>}
+      {!objectIsEmpty(state) && <MovieList state={state}/>}
       
     </VStack>
   );

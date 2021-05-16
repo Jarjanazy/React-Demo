@@ -11,13 +11,28 @@ const getMovieUsingKeyword = async (keyword) => {
    return reponse.json();
  };
 
- const searchAndSetMovie = (keywordRef, dispatch) => {
+ const searchAndSetMovie = async (keywordRef, dispatch) => {
      const keyword = keywordRef.current.value;
      if (keyword === "") return;
-
-    else getMovieUsingKeyword(keyword).
-        then(movie => dispatch({type:"search_movie", movie:movie}));
+    const movie = await getMovieUsingKeyword(keyword);
+    dispatch({type:"show_searched_movies", movies:[movie]});
  }
+
+ const getRandomMovies = (movieCount) => {
+     const randomWords = ['go', 'man', 'woman'];
+     return randomWords.map( (movieKeyword) => {
+        return getMovieUsingKeyword(movieKeyword);
+     });
+ }
+
+const getAndSetRandomMovies = async (randomMovieCountRef, dispatch) => {
+    const count = randomMovieCountRef.current.value;
+    if (count === "") return;
+
+    const movies = await Promise.all( getRandomMovies(count));
+    console.log(movies)
+    dispatch({type : "show_searched_movies", movies : movies});
+}
 
 
 const SearchBar = ({dispatch}) => {
@@ -32,7 +47,7 @@ const SearchBar = ({dispatch}) => {
             </HStack>
 
             <HStack>
-                <Button type="submit">Show Me</Button>
+                <Button type="submit" onClick={() => getAndSetRandomMovies(randomMovieCountRef, dispatch)}>Show Me</Button>
                 <Input placeholder="X" w="15%" ref={randomMovieCountRef}/>
                 <Text>Random movies!</Text>
             </HStack>

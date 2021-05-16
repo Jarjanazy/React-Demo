@@ -1,4 +1,4 @@
-import {VStack, Text, Image, HStack, StackDivider, Box} from '@chakra-ui/react'
+import {VStack, Text, Image, HStack, StackDivider} from '@chakra-ui/react'
 import UnOrderedListFromString from '../application/UnOrderedList'
 
 const Movie = ({movie}) =>{
